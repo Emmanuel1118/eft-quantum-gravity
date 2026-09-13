@@ -126,3 +126,6 @@ produced it is available.
 Chats are for discussion.
 
 Files are the durable source of truth.
+
+If `context/local_environment.md` exists, read it to determine the
+machine-specific locations of external research resources.
