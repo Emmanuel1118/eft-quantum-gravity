@@ -54,9 +54,34 @@ In particular:
 
 Finish constructing the VS Code research environment.
 
-Next setup stages:
+Setup stages:
 
 1. establish project context files;
 2. establish backup/version control for the Obsidian vault;
-3. install and configure an AI coding agent;
+3. Codex IDE agent setup complete; ordinary sandbox checks and Drive URL access verified;
 4. connect Mathematica execution through `wolframscript`.
+
+Stage 3 status on 2026-09-13: the user removed the streamed Google Drive folder
+from the VS Code workspace, leaving the research repository and Obsidian vault.
+Ordinary IDE commands now run without escalation as `codexsandboxoffline`;
+repository and Obsidian reads pass, and fresh setup logs report `errors=[]`.
+
+Literature access now uses folder/file URLs through the authenticated Google
+Drive connection. Folder navigation and readable text retrieval from the
+Donoghue 2023 PDF passed. The library remains read-only by project policy and
+separate from the repository. The local G: mount still denies sandbox access;
+repairing that mount is no longer the chosen literature-access route.
+See `context/local_environment.md` for URLs and `context/decisions.md` for rationale.
+
+Stage 3 completion check at 20:18 local on 2026-09-13 passed through ordinary IDE
+tools without escalation: sandbox identity, repository working directory,
+repository and Obsidian reads, unique output-file creation and exact readback,
+cleanup, and denial of unique file creation directly under `C:\Users\egreb`
+outside the workspace (`System.UnauthorizedAccessException`). Both probe paths
+were confirmed absent afterward. Fresh setup logs reported `errors=[]`.
+
+Stage 3 is complete for the two-root local workspace plus authenticated Drive
+URL access. This does not establish access to the local streamed G: mount or
+constitute an exhaustive sandbox security audit. Next setup step: Stage 4,
+connect and verify Mathematica execution through `wolframscript`; not yet begun.
+Details: `output/windows-sandbox-repair-2026-09-13.md` (local output artifact).

@@ -5,10 +5,10 @@
 This repository contains computational and reproducible work for an M.Sc.
 research project on effective-field-theory approaches to quantum gravity.
 
-The wider VS Code workspace also contains:
-
-- an Obsidian vault containing conceptual research notes;
-- a Google Drive folder containing research papers and reference material.
+The VS Code workspace contains this repository and an Obsidian vault containing
+conceptual research notes. Research papers and reference material remain in
+Google Drive, accessed through folder/file URLs using the authenticated Google
+Drive connection. The streamed Drive folder is not a VS Code workspace root.
 
 These are separate sources of truth and should not be duplicated into this repository.
 
@@ -87,6 +87,11 @@ Preserve Obsidian links and existing Markdown conventions.
 ## Research paper library
 
 Treat the Google Drive research-paper directory as READ-ONLY by default.
+
+Use the library URL in `context/local_environment.md` through the Google Drive
+connection for discovery and reading. Do not depend on sandbox access to the
+local `G:` mount. Including that mount as a workspace root caused Windows
+sandbox initialization to fail; URL access has been verified separately.
 
 Agents may:
 

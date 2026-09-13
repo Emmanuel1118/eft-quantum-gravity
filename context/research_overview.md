@@ -52,4 +52,5 @@ and version control.
 
 - Git repository: reproducible calculations and research state.
 - Obsidian vault: conceptual understanding and interconnected notes.
-- Google Drive: source literature and research papers.
+- Google Drive: source literature and research papers, accessed through URLs
+  using the authenticated Drive connection, outside the VS Code workspace.
