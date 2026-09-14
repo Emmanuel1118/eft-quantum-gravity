@@ -88,3 +88,18 @@ Windows sandbox. A successful run under the licensed user account does not
 establish sandbox acceptance. Resolve that distinction without cloud fallback
 or relaxing the sandbox. Tasks use process-scoped PowerShell `RemoteSigned`
 to run local scripts without changing persistent execution policy.
+
+### Follow-up: use the direct local kernel on this Windows machine
+
+Select the documented `wolfram.exe -noicon -noprompt -script` interface through
+ignored `context/wolfram.local.json`. This supersedes the earlier WolframScript-only
+choice here: direct execution passes in the existing sandbox with the same
+machine-wide license, while WolframScript still fails after configuration
+redirection. Its exact internal failure cause was not established.
+
+Keep kernel user files under `output/` and reference existing packages from
+ignored `local_config.wl`. No license changes or broader sandbox access are
+needed. Retain the portable WolframScript default when local JSON is absent.
+Require completion evidence for all runs and propagate native nonzero exits;
+the bootstrap reserves `$Epilog` for completion detection. Regression checks
+exercise fresh-kernel evaluation and failure handling.

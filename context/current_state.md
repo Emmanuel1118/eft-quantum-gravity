@@ -59,7 +59,7 @@ Setup stages:
 1. establish project context files;
 2. establish backup/version control for the Obsidian vault;
 3. Codex IDE agent setup complete; ordinary sandbox checks and Drive URL access verified;
-4. connect Mathematica execution through `wolframscript`.
+4. connect local Mathematica execution (direct kernel route now verified).
 
 Stage 3 status on 2026-09-13: the user removed the streamed Google Drive folder
 from the VS Code workspace, leaving the research repository and Obsidian vault.
@@ -85,28 +85,38 @@ URL access. This does not establish access to the local streamed G: mount or
 constitute an exhaustive sandbox security audit.
 Details: `output/windows-sandbox-repair-2026-09-13.md` (local output artifact).
 
-### Stage 4: implemented; sandbox acceptance still blocked
+### Stage 4: sandbox execution works; final acceptance checks pending
 
-The existing local Wolfram 14.3 installation, FeynCalc 10.2.0, and FeynGrav 4.0
-were verified on 2026-09-14 under the licensed Windows user account. Both
-packages are on its default `$Path`; `Needs["FeynCalc`"]` followed by
-`Needs["FeynGrav`"]` works without custom paths or a desktop notebook.
+The existing Wolfram 14.3, FeynCalc 10.2.0, and FeynGrav 4.0 installations work
+under both the normal Windows account and the dedicated sandbox account.
+Shared setup loads FeynCalc then FeynGrav with `Needs`; no desktop notebook is
+required. Both VS Code tasks use `scripts/run_wolfram.ps1`.
 
-Added shared `calculations/mathematica/setup.wl`, a package smoke test, and
-the VS Code tasks `Wolfram: Smoke Test` and `Wolfram: Run Current File`.
-Both task commands passed through the local kernel with escalation. The
-current-file probe printed `4` with its source directory as the working
-directory and was removed. VS Code menu invocation itself was not tested.
+On 2026-09-14 the direct route `wolfram.exe -noicon -noprompt -script` replaced
+the unreliable WolframScript intermediary on this machine. It is selected by
+ignored `context/wolfram.local.json`. Kernel user files
+stay under `output/wolfram-userbase/`; ignored `local_config.wl` references the
+existing package installation. The same `Needs` loading sequence is retained.
 
-Ordinary sandbox execution is not reliable: automatic kernel discovery reports
-failure opening the WolframScript configuration and can exit zero without
-executing the source. Explicitly selecting `WolframKernel.exe` reports a license
-error. The smoke-task runner requires its final PASS marker as well as exit
-code zero. Earlier isolated `2+2` success did not reproduce reliably.
+The current project runner passes without escalation under the dedicated
+sandbox account: full FeynCalc/FeynGrav smoke test; temporary source evaluation
+printing `4` with its source directory as working directory; explicit success;
+nonzero exit propagation; abort detection; syntax/BOM rejection; and missing
+completion detection. Temporary sources are removed by the runner regression
+test, `tests/wolfram_runner_test.ps1`. Both task routes now require completion
+evidence plus exit code zero; the smoke task also requires its final PASS marker.
 
-Next step remains Stage 4: establish supported local licensing/launcher access
-for the sandbox account without weakening isolation, then rerun both tasks and
-the fresh-conversation acceptance test without escalation. No package reinstall,
-license-file copy, permission-policy change, or cloud fallback was performed.
-Stages 5 onward have not begun. Machine paths are in `context/local_environment.md`;
-details are in `output/wolfram-stage4-2026-09-14.md`.
+The sandbox can read and use the same machine-wide Student license as the normal
+account (`$NetworkLicense=False`). Redirecting WolframScript configuration removes
+its configuration error but does not restore evaluation. The exact internal
+cause of its startup failure remains unknown; direct execution avoids that
+intermediary. No license copying, activation, ACL/firewall changes, sandbox
+weakening, package reinstall, or cloud fallback was needed.
+
+The user confirmed the original smoke task passes from the VS Code menu.
+Confirmation of both tasks after the runner change has been requested.
+Next: finish those menu checks and the handout's fresh-conversation acceptance
+test using the documented runner. Fresh kernels are verified in this conversation;
+a genuinely new conversation has not yet been tested. Stages 5 onward have not
+begun. Paths are in `context/local_environment.md`; diagnostic history is in
+`output/wolfram-stage4-2026-09-14.md`.

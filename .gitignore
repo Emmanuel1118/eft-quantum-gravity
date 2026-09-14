@@ -24,4 +24,5 @@ Thumbs.db
 
 # Machine-specific research environment
 context/local_environment.md
+context/wolfram.local.json
 calculations/mathematica/local_config.wl

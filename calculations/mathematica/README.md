@@ -1,6 +1,6 @@
 # Local Wolfram execution
 
-Use the installed local Mathematica kernel and `wolframscript` on PATH.
+Use the installed local Mathematica kernel through the project runner.
 In VS Code, choose **Terminal > Run Task > Wolfram: Smoke Test**.
 For a saved `.wl` file, choose **Wolfram: Run Current File**; its working
 directory is the source file's directory. These Windows tasks use PowerShell
@@ -16,11 +16,30 @@ The task selects `RemoteSigned` only for its PowerShell process so locally
 created scripts can run; it does not change the system execution policy or
 Codex sandbox permissions.
 
-The runner calls `wolframscript -local -file <source>` and preserves nonzero
-exit codes. The smoke task also requires an explicit final PASS marker because
-the installed launcher has returned exit code zero without evaluating code
-when launched in the Codex Windows sandbox. A zero exit code alone is not proof
-that a calculation ran; inspect its expected results.
+On this machine the ignored `context/wolfram.local.json` supplies `kernelPath`
+for the existing `wolfram.exe`. The runner uses `-noicon -noprompt -script`.
+This direct route passed under the dedicated sandbox account with the existing
+machine-wide license. Without that JSON file the portable default remains
+`wolframscript -local -file`; it is still unreliable inside this machine's sandbox.
+
+Kernel user files go under ignored `output/wolfram-userbase/`. Package paths
+come from ignored `local_config.wl`; packages stay in their existing installation.
+The WolframScript route uses `output/WolframScript.conf`. No persistent environment
+variables, license files, or sandbox permissions are changed by the runner.
+
+Both routes execute `scripts/wolfram_run.wl`, which checks source syntax and
+installs an `$Epilog` completion marker. All runs require that marker and exit
+code zero; smoke runs also require `PASS: MATHEMATICA_SMOKE_TEST`. Signal failed
+calculations with `Exit[1]` or `$Failed`; ordinary warning messages alone do not
+make a run fail. Do not replace `$Epilog`, which is reserved for completion checks.
+
+Stdout and stderr are captured concurrently, displayed on completion, and retained
+under a unique `output/wolfram-runs/` directory. `$InputFileName` refers to the
+actual source, and the task's working directory is preserved. Custom script
+arguments are not forwarded. Save `.wl` as UTF-8 without a BOM: Windows
+PowerShell's `Set-Content -Encoding UTF8` adds a prefix that this kernel can
+misinterpret as part of the first expression.
+The runner rejects this BOM explicitly rather than allowing a misleading result.
 
 Load shared setup in a calculation directly under this directory with:
 
@@ -38,9 +57,18 @@ libraries and calculation-specific conventions in the calculation itself.
 If existing packages are outside `$Path`, the ignored `local_config.wl` beside
 `setup.wl` may extend `$Path`. Record installation locations in the ignored
 `context/local_environment.md`; do not copy packages or old notebooks here.
-No local configuration file is needed for the verified normal-user installation.
+The current direct-kernel setup uses this file to reference the existing
+FeynCalc and FeynGrav Applications directory.
 
 Durable sources belong here as `.wl`; retain `.nb` when interactivity is useful.
 Write generated artifacts beneath the repository's ignored `output/` directory.
 
 CLI reference: [WolframScript documentation](https://reference.wolfram.com/language/ref/program/wolframscript.html).
+
+Direct route: [Wolfram kernel documentation](https://reference.wolfram.com/language/ref/program/wolfram.html).
+
+Runner regression checks (fresh kernels and disposable source files):
+
+```powershell
+powershell.exe -NoProfile -ExecutionPolicy RemoteSigned -File tests/wolfram_runner_test.ps1
+```
