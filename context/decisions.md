@@ -72,3 +72,19 @@ route without Drive ACL changes, reduced sandbox isolation, or a duplicate paper
 library. It depends on the authenticated connection and does not establish local
 filesystem access. Sandbox write-boundary verification is a separate check;
 the ordinary-tool completion results are recorded in `context/current_state.md`.
+
+---
+
+## 2026-09-14 - Use a shared local Wolfram setup and explicit smoke-test evidence
+
+Use `wolframscript -local -file` through portable Windows VS Code tasks.
+Load FeynCalc and FeynGrav in `calculations/mathematica/setup.wl`; keep
+calculation-specific assumptions and gauge choices in individual sources.
+Optional machine-specific package paths belong in ignored `local_config.wl`.
+
+Require both exit code zero and the explicit final PASS marker for the smoke
+task. The installed launcher can return zero without executing source in the
+Windows sandbox. A successful run under the licensed user account does not
+establish sandbox acceptance. Resolve that distinction without cloud fallback
+or relaxing the sandbox. Tasks use process-scoped PowerShell `RemoteSigned`
+to run local scripts without changing persistent execution policy.

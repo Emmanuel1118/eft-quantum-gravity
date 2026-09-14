@@ -1,0 +1,29 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Wolfram: Smoke Test",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile", "-ExecutionPolicy", "RemoteSigned", "-File", "${workspaceFolder}/scripts/run_wolfram.ps1",
+        "-FilePath", "${workspaceFolder}/tests/mathematica_smoke_test.wl",
+        "-RequireSmokePass"
+      ],
+      "options": { "cwd": "${workspaceFolder}" },
+      "problemMatcher": [],
+      "group": "test"
+    },
+    {
+      "label": "Wolfram: Run Current File",
+      "type": "process",
+      "command": "powershell.exe",
+      "args": [
+        "-NoProfile", "-ExecutionPolicy", "RemoteSigned", "-File", "${workspaceFolder}/scripts/run_wolfram.ps1",
+        "-FilePath", "${file}"
+      ],
+      "options": { "cwd": "${fileDirname}" },
+      "problemMatcher": []
+    }
+  ]
+}

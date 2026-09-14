@@ -1,6 +1,6 @@
 # Current Research State
 
-_Last updated: 2026-09-13_
+_Last updated: 2026-09-14_
 
 ## Active investigation
 
@@ -82,6 +82,31 @@ were confirmed absent afterward. Fresh setup logs reported `errors=[]`.
 
 Stage 3 is complete for the two-root local workspace plus authenticated Drive
 URL access. This does not establish access to the local streamed G: mount or
-constitute an exhaustive sandbox security audit. Next setup step: Stage 4,
-connect and verify Mathematica execution through `wolframscript`; not yet begun.
+constitute an exhaustive sandbox security audit.
 Details: `output/windows-sandbox-repair-2026-09-13.md` (local output artifact).
+
+### Stage 4: implemented; sandbox acceptance still blocked
+
+The existing local Wolfram 14.3 installation, FeynCalc 10.2.0, and FeynGrav 4.0
+were verified on 2026-09-14 under the licensed Windows user account. Both
+packages are on its default `$Path`; `Needs["FeynCalc`"]` followed by
+`Needs["FeynGrav`"]` works without custom paths or a desktop notebook.
+
+Added shared `calculations/mathematica/setup.wl`, a package smoke test, and
+the VS Code tasks `Wolfram: Smoke Test` and `Wolfram: Run Current File`.
+Both task commands passed through the local kernel with escalation. The
+current-file probe printed `4` with its source directory as the working
+directory and was removed. VS Code menu invocation itself was not tested.
+
+Ordinary sandbox execution is not reliable: automatic kernel discovery reports
+failure opening the WolframScript configuration and can exit zero without
+executing the source. Explicitly selecting `WolframKernel.exe` reports a license
+error. The smoke-task runner requires its final PASS marker as well as exit
+code zero. Earlier isolated `2+2` success did not reproduce reliably.
+
+Next step remains Stage 4: establish supported local licensing/launcher access
+for the sandbox account without weakening isolation, then rerun both tasks and
+the fresh-conversation acceptance test without escalation. No package reinstall,
+license-file copy, permission-policy change, or cloud fallback was performed.
+Stages 5 onward have not begun. Machine paths are in `context/local_environment.md`;
+details are in `output/wolfram-stage4-2026-09-14.md`.
