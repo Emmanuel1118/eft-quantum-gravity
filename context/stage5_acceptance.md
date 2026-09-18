@@ -1,8 +1,41 @@
 # Stage 5 and 5B acceptance
 
 Implementation and current-conversation acceptance: passed on 2026-09-16.
-Final fresh-conversation check: pending. This is not claimed to have run in an
-independent conversation. Stages 6-8 have not been executed by this work.
+Final fresh-conversation check: passed on 2026-09-18 in a new conversation.
+Stages 5 and 5B are complete. Stages 6-8 have not been executed by this work.
+
+## Fresh-conversation evidence (2026-09-18)
+
+- Reconstructed context from AGENTS.md, current state, local environment,
+  paper workflow, roadmap, and this acceptance record.
+- Authenticated Drive metadata confirmed the recorded index is a native Sheet
+  in Papers. Read both tab identities and the ResearchPapers table constraints
+  (A1:AF19, 32 columns); listed the four Papers subfolders.
+- Resolved P001 by stable ID at row 2. Confirmed exact base arXiv ID
+  `2211.09902`, stored `arXiv v2 (11 Jan 2023)`, and Drive source ID
+  `1kFK0ZZh3Y8tlOfahuLvFHfIhlc6ZdG96`. Filename search returned that PDF;
+  connector-readable text confirmed its v2 stamp.
+- Confirmed the note path and Obsidian link refer to
+  `02 Papers/Donoghue 2023 — Quantum General Relativity and Effective Field Theory.md`.
+  Read that existing partial summary without modifying it.
+- Reused the disposable selected-PDF cache. The local extractor read physical
+  page 10 of 26; the rendered original shows Section 5.1 and Eq. 20, including
+  the classical coefficient 3 and quantum coefficient 41/(10 pi). Local search
+  for `non-analytic` matched pages 9-11. Both commands exited zero.
+- Re-resolved P001 from live IDs immediately before the write. Updated only
+  Papers!AE2 (Last verified), using numeric date 46283. Readback displays
+  `9/18/2026` with the existing M/d/yyyy date format.
+- Full before/after value comparison found exactly that one changed cell.
+  `Read substantially`, familiarity date 2026-09-16, and the blank personal
+  comment were preserved. No row was added. The live-snapshot validator found
+  18 records, zero issues, and exactly P001 for `2211.09902v2`.
+- CUA again reported no browsers. Native chip appearance remains unverified;
+  the date value/format and neighboring cells were checked through the API.
+  Prior exported visual review remains recorded below.
+
+Disposable evidence: `output/stage5/acceptance-2026-09-18-page10.txt`, matching
+provenance JSON, `acceptance-2026-09-18-render/page-0010.png`, and
+`acceptance-2026-09-18-index.json`. Source PDFs and vault notes were unchanged.
 
 ## Verified evidence
 
@@ -54,7 +87,7 @@ Generated evidence is under ignored `output/stage5/`; it is reproducible and
 not authoritative. The selected source cache is under `output/paper_cache/`.
 Canonical spreadsheet/source URLs are in `local_environment.md`.
 
-## Fresh-conversation acceptance prompt
+## Fresh-conversation acceptance prompt (completed; retained for repeat checks)
 
 Run this in a new conversation in this same VS Code workspace:
 

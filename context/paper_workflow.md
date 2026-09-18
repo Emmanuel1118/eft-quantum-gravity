@@ -1,8 +1,8 @@
 # Paper reading and research index
 
-Implemented 2026-09-16. Stage 5/5B operational checks passed in the implementation
-conversation. A genuinely new conversation remains the final independence check;
-use the prompt in `context/stage5_acceptance.md`.
+Implemented 2026-09-16. Stage 5/5B operational checks and the final independent
+conversation check passed, the latter on 2026-09-18. Evidence and the repeatable
+acceptance prompt are in `context/stage5_acceptance.md`.
 
 ## Sources of truth
 
@@ -154,4 +154,4 @@ $paperPython = Join-Path $env:USERPROFILE '.cache/codex-runtimes/codex-primary-r
 & $paperPython -m unittest discover -s tests -p 'test_paper*.py' -v
 ```
 
-See `stage5_acceptance.md` for evidence and the remaining independent check.
+See `stage5_acceptance.md` for evidence and the completed independent check.

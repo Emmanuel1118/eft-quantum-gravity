@@ -1,6 +1,6 @@
 # VS Code research setup roadmap
 
-_Documented: 2026-09-16_
+_Updated: 2026-09-18_
 
 Adapted from the user-supplied
 `VSCode_Only_Research_Setup_Stage4_and_Beyond.md`. This records the plan;
@@ -28,8 +28,8 @@ See [decisions.md](decisions.md) for the rationale.
 
 ## Stage 5 — Paper reading and search from VS Code
 
-Status: implemented on 2026-09-16; current-conversation checks passed.
-Final fresh-conversation check pending. See [acceptance record](stage5_acceptance.md)
+Status: complete; fresh-conversation acceptance passed on 2026-09-18.
+See [acceptance record](stage5_acceptance.md)
 and [paper workflow](paper_workflow.md) for evidence and commands.
 
 - In a fresh session, verify library listing, PDF filename search, and basic
@@ -58,8 +58,9 @@ without leaving VS Code, including the planned local extraction capability.
 
 ## Stage 5B — Research Paper Index
 
-Status: implemented on 2026-09-16; current-conversation checks passed.
-Final fresh-conversation reopen-and-update check pending.
+Status: complete; fresh-conversation reopen-and-update acceptance passed on
+2026-09-18. P001's verification date was updated and read back, with all other
+values preserved and no duplicate record added.
 
 - Maintain the native Research Paper Index in Papers through the existing
   authenticated Drive connection. This is an authorized writable artifact.
@@ -76,8 +77,8 @@ Final fresh-conversation reopen-and-update check pending.
 Evidence: 18 records (8 stored, 10 external); source/note links; user-supplied
 familiarity; live row addition; sorted ID-based update preserving another field;
 duplicate checks; native metadata/value verification and exported visual review.
-Exact native chip visuals await a browser-equipped session. Run the prompt in
-[stage5_acceptance.md](stage5_acceptance.md) before marking Stage 5/5B fully complete.
+Exact native chip visuals await a browser-equipped session. The final prompt in
+[stage5_acceptance.md](stage5_acceptance.md) passed on 2026-09-18.
 
 ## Stage 6 — Obsidian editing and backup from VS Code
 

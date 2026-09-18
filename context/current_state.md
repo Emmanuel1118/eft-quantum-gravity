@@ -1,6 +1,6 @@
 # Current Research State
 
-_Last updated: 2026-09-16_
+_Last updated: 2026-09-18_
 
 ## Active investigation
 
@@ -60,15 +60,15 @@ Setup stages:
 2. establish backup/version control for the Obsidian vault (complete);
 3. Codex IDE agent setup complete; ordinary sandbox checks and Drive URL access verified;
 4. connect local Mathematica execution (complete; fresh-conversation acceptance passed);
-5. paper reading/search and 5B index (implemented; fresh-conversation acceptance pending);
+5. paper reading/search and 5B index (complete; fresh-conversation acceptance passed);
 6. Obsidian editing and backup from VS Code (pending);
 7. standard research workflow (pending);
 8. end-to-end VS Code acceptance test (pending).
 
 See [setup roadmap](setup_roadmap.md) for the remaining stages, acceptance
 criteria, and optional tooling, incorporated from the supplied Stage 4+ plan.
-Next setup step: the final Stage 5/5B fresh-conversation check in
-[acceptance record](stage5_acceptance.md), then Stage 6.
+Next setup step: Stage 6. Stage 5/5B fresh-conversation checks passed; see the
+[acceptance record](stage5_acceptance.md).
 
 Stage 3 status on 2026-09-13: the user removed the streamed Google Drive folder
 from the VS Code workspace, leaving the research repository and Obsidian vault.
@@ -150,7 +150,7 @@ Paths are in `context/local_environment.md`; diagnostic history is in
 `output/stage4-validation-2026-09-15.md`. Fresh-conversation evidence is in
 `output/stage4-fresh-acceptance-2026-09-15.md`.
 
-### Stage 5 and 5B: implemented; independent conversation check pending
+### Stage 5 and 5B: complete
 
 On 2026-09-16 the authenticated Drive connection inventoried all eight PDFs in
 Papers and its four subfolders. Filename search and readable text retrieval
@@ -175,6 +175,15 @@ no new access scope or sharing change was needed. Index maintenance is authorize
 See [paper workflow](paper_workflow.md) and [acceptance record](stage5_acceptance.md).
 URLs are in `local_environment.md`; generated evidence is under `output/stage5/`.
 Both exported spreadsheet tabs were visually inspected; exact native chip
-appearance remains unverified because CUA reported no browser. A genuinely new
-conversation has not yet run the recorded acceptance prompt. Source PDFs and
-vault notes were unchanged; Stages 6-8 remain pending.
+appearance remains unverified because CUA reported no browser.
+
+On 2026-09-18 a new conversation reconstructed context from project files and
+passed the recorded acceptance check: authenticated index metadata and P001
+readback, PDF filename search and readable text retrieval, local page-10
+extraction and original-page visual verification of Eq. 20, and concept search
+on pages 9-11. The linked Obsidian summary was read and confirmed. P001 was
+resolved again by stable ID before updating only Last verified to 2026-09-18.
+Full table readback showed that single cell change; familiarity, its reported
+date, and the blank personal comment were preserved. The live snapshot validator
+found 18 records, zero issues, and one match for the versioned arXiv identifier.
+Source PDFs and vault notes were unchanged; Stages 6-8 remain pending.
