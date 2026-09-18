@@ -1,0 +1,3 @@
+# Verified with Python 3.12 in the bundled runtime. No installation required here.
+pypdf==6.10.0
+pypdfium2==5.13.0

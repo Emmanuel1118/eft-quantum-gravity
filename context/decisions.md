@@ -103,3 +103,31 @@ needed. Retain the portable WolframScript default when local JSON is absent.
 Require completion evidence for all runs and propagate native nonzero exits;
 the bootstrap reserves `$Epilog` for completion detection. Regression checks
 exercise fresh-kernel evaluation and failure handling.
+
+---
+
+## 2026-09-16 - Use a native Drive spreadsheet as the literature catalog
+
+Maintain Research Paper Index in the existing Papers folder through the
+authenticated Google Drive connection. Include known relevant external papers
+as well as stored PDFs. The Sheet is authoritative; extraction/build snapshots
+under `output/` are disposable. Obsidian remains authoritative for summaries.
+
+Use stable Paper IDs, normalized DOI/arXiv matching, source/version provenance,
+and distinct availability/summary/familiarity fields. Update human familiarity
+only from explicit reports. Preserve manual edits with narrow read-before-write
+updates and ID resolution after sorting. Extend native table metadata on inserts.
+
+Index maintenance has standing user authorization. No connector scope narrowing
+is required, and existing write access worked. The user prefers broader future
+paper-library access; this setup does not request reorganization of source files.
+Maintenance is session-driven; background sync and scheduled backups are optional.
+
+Use pypdf for selected-PDF extraction and pypdfium2 for page rendering through
+`scripts/paper_text.ps1`, which chooses the existing modern Python runtime.
+Record physical page numbers, source hash and canonical URL; check mathematics
+against rendered originals. Preserve the two-root workspace and authenticated
+URL-based retrieval. Selected downloads may need sandbox network approval.
+
+Keep the fresh-conversation acceptance gate explicit. Current-session tool
+readbacks and new Python processes do not establish an independent conversation.

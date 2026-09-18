@@ -88,6 +88,12 @@ Preserve Obsidian links and existing Markdown conventions.
 
 Treat the Google Drive research-paper directory as READ-ONLY by default.
 
+The Research Paper Index is an authorized writable exception. The user approved
+its creation and ongoing maintenance on 2026-09-16; the Drive connection does
+not need to be technically restricted to that one file. Broader paper-library
+operations can be authorized by the research task. Do not treat a preference
+for eventual full access as a request to reorganize or delete existing papers.
+
 Use the library URL in `context/local_environment.md` through the Google Drive
 connection for discovery and reading. Do not depend on sandbox access to the
 local `G:` mount. Including that mount as a workspace root caused Windows
@@ -101,6 +107,28 @@ Agents may:
 - cite papers in notes and research output.
 
 Do not rename, move, delete, or reorganize papers unless explicitly instructed.
+
+## Paper reading and catalog maintenance
+
+Read `context/paper_workflow.md` for selected-PDF retrieval, local extraction,
+page rendering, and catalog updates. The canonical spreadsheet URL is in
+`context/local_environment.md`. Use it rather than a locally maintained catalog.
+
+- Consult the index when locating literature; register newly relevant papers
+  during authorized research work, even if their PDF is not in Papers.
+- Match DOI and base arXiv IDs before adding a row. Resolve the current row by
+  stable Paper ID after any sorting, and flag conflicting matches.
+- Read current cells and native table constraints before writing. Preserve
+  human edits, extend the native table when adding rows, and verify readback.
+- Change human familiarity only from the user's explicit assessment. Never
+  infer familiarity from note existence, paper access, or an AI explanation.
+- Keep summary coverage in the index and substantive summaries in Obsidian.
+  A mention or citation is distinct from a paper summary.
+- A failed or incomplete scan means unchecked/inaccessible, not absent.
+  Availability currently refers to Papers and its descendants.
+- Store selected PDF caches, extraction JSON/text, and temporary catalog
+  snapshots under ignored `output/`. Do not store temporary download URLs or
+  credentials in durable files. No background synchronization is configured.
 
 ## Research state
 
