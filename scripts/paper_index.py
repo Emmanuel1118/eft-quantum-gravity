@@ -21,9 +21,11 @@ def normalize_arxiv(value):
     return re.sub(r"v\d+$", "", value)
 
 
-def records(snapshot):
+def records(snapshot, identity_only=False):
     headers = snapshot["headers"]
-    required = {"Paper ID", "Title", "DOI", "arXiv ID", "Drive status", "Drive file ID", "Your familiarity"}
+    required = {"Paper ID", "Title", "DOI", "arXiv ID"}
+    if not identity_only:
+        required |= {"Drive status", "Drive file ID", "Your familiarity"}
     if len(set(headers)) != len(headers) or not required <= set(headers):
         raise ValueError("Missing or duplicate catalog headers")
     for row in snapshot["rows"]:
@@ -53,12 +55,17 @@ def validate(snapshot):
 
 def lookup(snapshot, doi=None, arxiv=None):
     matches = []
-    for row in records(snapshot):
+    for row in records(snapshot, identity_only=True):
         if ((doi and normalize_doi(row["DOI"]) == normalize_doi(doi)) or
                 (arxiv and normalize_arxiv(row["arXiv ID"]) == normalize_arxiv(arxiv))):
             matches.append(row)
     if len(matches) > 1:
         raise ValueError("Ambiguous identifiers: review matching records before any write")
+    if matches:
+        row = matches[0]
+        for key, candidate, normalize in (("DOI", doi, normalize_doi), ("arXiv ID", arxiv, normalize_arxiv)):
+            if candidate and row[key] and normalize(candidate) != normalize(row[key]):
+                raise ValueError("Conflicting {} on matched record: review before any write".format(key))
     return matches
 
 
@@ -67,11 +74,16 @@ def main():
     parser.add_argument("snapshot", type=Path)
     parser.add_argument("--doi")
     parser.add_argument("--arxiv")
+    parser.add_argument("--lookup-only", action="store_true",
+                        help="Match a compact live projection: Paper ID, Title, DOI, arXiv ID; skip full audit")
     args = parser.parse_args()
     try:
         snapshot = json.loads(args.snapshot.read_text(encoding="utf-8-sig"))
-        issues = validate(snapshot)
-        result = {"records": len(list(records(snapshot))), "issues": issues}
+        if args.lookup_only and not (args.doi or args.arxiv):
+            raise ValueError("--lookup-only requires --doi or --arxiv")
+        issues = [] if args.lookup_only else validate(snapshot)
+        result = {"records": len(list(records(snapshot, identity_only=args.lookup_only))),
+                  "full_validation": not args.lookup_only, "issues": issues}
         if args.doi or args.arxiv:
             result["matches"] = [{"Paper ID": r["Paper ID"], "Title": r["Title"]} for r in lookup(snapshot, args.doi, args.arxiv)]
         print(json.dumps(result, ensure_ascii=True, indent=2))

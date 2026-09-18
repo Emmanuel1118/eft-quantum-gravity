@@ -131,3 +131,28 @@ URL-based retrieval. Selected downloads may need sandbox network approval.
 
 Keep the fresh-conversation acceptance gate explicit. Current-session tool
 readbacks and new Python processes do not establish an independent conversation.
+
+---
+
+## 2026-09-18 - Read notes first and register papers from metadata
+
+Use the minimum evidence needed for each question: relevant Obsidian sections,
+targeted index fields, cached extraction, then selected original pages when
+coverage is missing, uncertain, conflicting, or calculation-critical. Track
+referenced, summarized, and source-verified material separately with version,
+locators, assumptions and gaps. Reuse existing verification honestly; do not
+describe note consultation as fresh source verification.
+
+Register newly relevant papers from available metadata without mandatory PDF
+reading, summary creation, optional-field enrichment, or full inventory. Use
+compact live identity projections, normalized DOI/base arXiv matching, and
+within-batch deduplication. Preserve unknowns, human-owned fields, native table
+constraints, and stable IDs. Refresh live prerequisites immediately before
+short writes and verify affected rows; reconcile uncertain writes before retry.
+
+Keep the live Sheet authoritative, Obsidian substantive, and caches disposable.
+Default text searches to bounded snippets; cached searches report page coverage
+and retain provenance. Inventory, full audits, and acceptance checks are triggered
+by their specific need rather than routine research. Load the registration
+procedure only for discovery/addition tasks. No background synchronization or
+second maintained catalog is introduced.

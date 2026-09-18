@@ -177,6 +177,17 @@ URLs are in `local_environment.md`; generated evidence is under `output/stage5/`
 Both exported spreadsheet tabs were visually inspected; exact native chip
 appearance remains unverified because CUA reported no browser.
 
+Paper usage optimization is implemented (2026-09-18): start with relevant vault
+sections, use targeted index reads, and open source pages only for evidence gaps
+or exact source checks. New papers follow the metadata-first, batched procedure
+in [paper registration](paper_registration.md); registration alone does not
+require PDF reading, summarization, or a library inventory. `paper_text.ps1`
+supports compact snippets/page lists and cache-only JSON search; `paper_index.py`
+supports compact identity lookup and conflicting-identifier checks. Eighteen
+paper utility tests pass. P001's note and live Summary coverage now distinguish
+Eq. 20 from reference-only Eqs. 16/18; human fields are preserved. These changes
+do not complete the pending Stage 6 backup/editing acceptance or Stages 7-8.
+
 On 2026-09-18 a new conversation reconstructed context from project files and
 passed the recorded acceptance check: authenticated index metadata and P001
 readback, PDF filename search and readable text retrieval, local page-10

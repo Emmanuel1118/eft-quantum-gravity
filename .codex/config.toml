@@ -1,0 +1,10 @@
+default_permissions = "research"
+
+[permissions.research]
+extends = ":workspace"
+
+[permissions.research.filesystem]
+'G:\My Drive\M.Sc. Research' = "read"
+
+[permissions.research.workspace_roots]
+'C:\Users\egreb\Technion_MSc\obsidian_vaults\eft_quantum_gravity_vault' = true

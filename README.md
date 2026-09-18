@@ -14,6 +14,9 @@ See [research state](context/current_state.md) for setup status and
 paths and library URLs are recorded in the untracked `context/local_environment.md`.
 
 For literature work, see [paper reading and catalog workflow](context/paper_workflow.md).
+Start with relevant vault notes; open source pages when evidence is missing or
+exact verification is needed. For new records, use
+[metadata-first paper registration](context/paper_registration.md).
 The native Research Paper Index in Drive holds the bibliography and reading
 status. PDF extraction/rendering utilities live in `scripts/`; selected source
 caches and generated outputs stay under ignored `output/`.

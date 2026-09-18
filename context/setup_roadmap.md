@@ -105,7 +105,9 @@ Status: pending.
 
 At session start, read `AGENTS.md`, `context/current_state.md`, and
 `context/local_environment.md`; consult the overview and decisions when relevant.
-Inspect relevant calculations, notes, and papers before substantial work.
+Inspect relevant calculations and notes before substantial work. Consult source
+papers when the notes leave evidence gaps or exact source checks are required;
+follow the notes-first decision rules in `paper_workflow.md`.
 
 Keep reproducible calculations in `calculations/`, utilities in `scripts/`,
 tests in `tests/`, conceptual understanding in Obsidian, active status in

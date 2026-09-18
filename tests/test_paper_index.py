@@ -28,6 +28,19 @@ class IndexTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             index.lookup(self.sample(), doi="10.1234/abc", arxiv="hep-th/0405239")
 
+    def test_conflicting_identifier_on_single_match_requires_review(self):
+        with self.assertRaisesRegex(ValueError, "Conflicting DOI"):
+            index.lookup(self.sample(), doi="10.9999/different", arxiv="0802.0716")
+
+    def test_compact_identity_projection_and_same_batch_duplicates(self):
+        projection = {"headers": self.sample()["headers"][:4],
+                      "rows": [r[:4] for r in self.sample()["rows"]]}
+        self.assertEqual(index.lookup(projection, arxiv="0802.0716v2")[0]["Paper ID"], "P1")
+        self.assertEqual(index.lookup(projection, doi="10.9999/new"), [])
+        projection["rows"].append(["P3", "Candidate", "", "0802.0716v3"])
+        with self.assertRaisesRegex(ValueError, "Ambiguous"):
+            index.lookup(projection, arxiv="0802.0716")
+
     def test_duplicate_work_is_flagged(self):
         snapshot = self.sample()
         snapshot["rows"][1][3] = "0802.0716v3"

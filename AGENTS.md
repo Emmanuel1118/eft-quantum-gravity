@@ -18,7 +18,9 @@ These are separate sources of truth and should not be duplicated into this repos
 2. Read `context/research_overview.md` when broader scientific context is needed.
 3. Inspect relevant existing calculations before creating new ones.
 4. Consult relevant notes in the Obsidian vault.
-5. Consult relevant papers when the task depends on the literature.
+5. Use relevant source-grounded notes first. Open papers only for missing,
+   uncertain, conflicting, or calculation-critical evidence; see the reading
+   decision rules in `context/paper_workflow.md`.
 
 Do not assume that chat history is authoritative if it conflicts with project files.
 
@@ -110,12 +112,23 @@ Do not rename, move, delete, or reorganize papers unless explicitly instructed.
 
 ## Paper reading and catalog maintenance
 
-Read `context/paper_workflow.md` for selected-PDF retrieval, local extraction,
-page rendering, and catalog updates. The canonical spreadsheet URL is in
+Read relevant sections of `context/paper_workflow.md` for reading decisions,
+selected-PDF retrieval, local extraction, and catalog updates. Load
+`context/paper_registration.md` only when adding/discovering papers.
+The canonical spreadsheet URL is in
 `context/local_environment.md`. Use it rather than a locally maintained catalog.
 
 - Consult the index when locating literature; register newly relevant papers
   during authorized research work, even if their PDF is not in Papers.
+- For questions already supported by a known vault note, skip index and PDF
+  reads. Read only relevant note sections; stop when the evidence is sufficient.
+- Register new papers from available bibliographic metadata first. Deduplicate
+  using a compact live identity projection, including candidates in the same
+  batch. Do not read/download PDFs, summarize papers, inventory the library,
+  or verify every optional field merely to add a record. Record unknowns.
+- Reuse metadata within a task for read-only lookups. Use bounded reads and
+  narrow write/readback batches; refresh live structure and affected cells
+  before writes. Do not rerun acceptance checks or full audits routinely.
 - Match DOI and base arXiv IDs before adding a row. Resolve the current row by
   stable Paper ID after any sorting, and flag conflicting matches.
 - Read current cells and native table constraints before writing. Preserve
@@ -124,11 +137,17 @@ page rendering, and catalog updates. The canonical spreadsheet URL is in
   infer familiarity from note existence, paper access, or an AI explanation.
 - Keep summary coverage in the index and substantive summaries in Obsidian.
   A mention or citation is distinct from a paper summary.
+- Distinguish referenced, summarized, and source-verified material. Keep source
+  version, page/equation locators, assumptions, and unresolved gaps in notes.
+  Update these incrementally during authorized research, not by pre-reading
+  the library. Do not update verification dates merely for consulting a row.
 - A failed or incomplete scan means unchecked/inaccessible, not absent.
   Availability currently refers to Papers and its descendants.
 - Store selected PDF caches, extraction JSON/text, and temporary catalog
   snapshots under ignored `output/`. Do not store temporary download URLs or
   credentials in durable files. No background synchronization is configured.
+- Reuse cached extraction and rendered pages for the recorded source version.
+  Prefer compact search snippets; a partial-cache miss is not paper-wide absence.
 
 ## Research state
 
