@@ -63,6 +63,16 @@ FeynCalc and FeynGrav Applications directory.
 Durable sources belong here as `.wl`; retain `.nb` when interactivity is useful.
 Write generated artifacts beneath the repository's ignored `output/` directory.
 
+For the oscillator miniproject, the user requested a notebook as the primary
+working artifact: [oscillator_uv_matching.nb](oscillator_uv_matching.nb).
+Open it in Mathematica and evaluate the implemented input cells from the top in
+a fresh kernel. The UV setup and stability checks are implemented; later sections
+contain learning milestones. It requires only built-in functions. Its conceptual
+roadmap is the vault's `03 Calculations/Oscillator Toy Model - UV Matching and
+Runaway Solutions.md`. Reusable `.wl` pieces can follow as the calculation matures.
+The existing **Run Current File** task accepts `.wl` only; it does not evaluate
+this notebook.
+
 CLI reference: [WolframScript documentation](https://reference.wolfram.com/language/ref/program/wolframscript.html).
 
 Direct route: [Wolfram kernel documentation](https://reference.wolfram.com/language/ref/program/wolfram.html).

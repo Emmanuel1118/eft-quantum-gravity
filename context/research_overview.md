@@ -8,13 +8,18 @@ completion of quantum gravity.
 
 ## Main research direction
 
-The current investigation focuses on corrections to classical gravitational
-observables derived from quantum field theory and effective general
-relativity.
+The current short-term focus (2026-09-18) is how the EFT interpretation and
+explicit UV matching restrict higher-derivative gravity's solutions and
+initial data. The proposed route is a solvable light/heavy toy model, followed
+by quadratic gravity as a baseline and a possible Riemann-cubed or
+matter-coupled application. See `current_state.md` and the linked vault review.
+
+The earlier investigation concerns corrections to classical gravitational
+observables derived from quantum field theory and effective general relativity.
 
 A central example is the long-distance correction to the Newtonian potential.
 
-The immediate conceptual starting point is understanding the structure and
+That thread's conceptual starting point is understanding the structure and
 derivation of the one-loop correction discussed in Donoghue's treatment of
 effective quantum gravity.
 

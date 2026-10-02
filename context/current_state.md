@@ -1,18 +1,79 @@
 # Current Research State
 
-_Last updated: 2026-09-18_
+_Last updated: 2026-10-02_
 
 ## Active investigation
 
-Understand the origin and structure of the one-loop corrections to the
-Newtonian gravitational potential in effective quantum gravity.
+For the next few days, investigate how treating higher-derivative gravity as
+an EFT restricts its admissible solutions and initial data, and what explicit
+UV matching contributes beyond bulk Wilson coefficients (user focus, 2026-09-18).
 
-The current reference point is Eq. 20 in Donoghue's treatment and the
-calculation underlying it.
+Active starting calculation: the healthy coordinate-coupled light/heavy
+oscillator model. The vault's `03 Calculations/Oscillator Toy Model - UV Matching
+and Runaway Solutions.md` now records goals, steps, and learning checkpoints.
+The primary working artifact is `calculations/mathematica/oscillator_uv_matching.nb`,
+following the user's notebook preference. Its UV Lagrangian, coupled equations,
+energy, and potential-positivity checks passed in the local kernel. An independent
+symbolic suitability check confirms stable UV modes and a spurious growing root
+above the heavy scale in the first fourth-order derivative truncation.
+Normal-mode/data matching and the evolution/error benchmark remain pending.
+The researcher leads physical derivations and interpretation; AI assistance
+focuses on readable Mathematica implementation. Next: derive exact normal modes,
+then implement their low-energy initial-data map. Gravity follows this benchmark.
+
+The vault note `04 Research Questions/Higher-Derivative Gravity - Literature
+Review and Investigation Plan.md` contains the light review, prioritized
+references, evidence limits, and a proposed three-day plan. Relevant prior work
+includes Simon (1990), Burgess/Williams (2014), Glavan (2018), and direct
+2024-2026 work on gravitational mode removal and initial-data reduction.
+The general idea is established; novelty of a particular UV-matching extension
+is not yet assessed.
+
+Woodard reading is consolidated (2026-09-21) in the vault's
+`02 Papers/Woodard 2015 — The Theorem of Ostrogradsky.md` and five linked
+concept notes. Coverage distinguishes nondegeneracy/gauge constraints,
+Hamiltonian state counting, energy unboundedness versus trajectory growth,
+canonical quantization, and order reduction/initial-data branch selection.
+Selected arXiv v2 equations were visually checked against the PDF; full
+interacting and gravitational derivations remain. The apparent wording reversal
+in Section 4.1 is flagged as an interpretation, not a confirmed erratum.
+Burgess/Williams reading is consolidated (2026-09-30) in the vault's
+`02 Papers/Burgess and Williams 2014 — Runaway Ghosts and Time-Dependent EFTs.md`,
+three new concept notes, and an extension of the existing order-reduction note.
+Coverage includes source/Legendre identities, the Goldstone model, locality and
+the inverse-mass expansion, the fourth-order variation, and runaway/data selection.
+Original arXiv v1 PDF pages 5–10 were visually checked; worked explanatory algebra
+is distinguished from source statements. Finite-time state/Green-function matching,
+full quantum contour treatment, and error bounds remain open.
+The healthy light/heavy oscillator benchmark above has now started. Keep UV
+state preparation explicit, and distinguish finite-order UV data matching from
+exact projection onto the truncated equation's no-runaway subspace: omitted-order
+data mismatch can seed its growing mode. Finite-order EFT accuracy is distinct
+from exact all-orders convergence; the full matching/error benchmark and
+gravitational branch classification remain pending.
+
+The earlier one-loop Newtonian-potential investigation remains a background
+thread, with Donoghue Eq. 20 as its reference point.
+
+Bateman/Turok (2026), arXiv:2607.00096v1, is registered as P039 (High priority).
+Selected main-text reading identifies a useful comparison for the ghost question:
+Krein-space quantization and tree-level probability positivity in a fundamental
+four-derivative scalar theory. This does not establish EFT initial-data matching
+or generic gravitational branch admissibility; higher-order positivity remains
+open and the gravity connection is a conformally flat limit. The planned
+light/heavy benchmark remains the next calculation. A brief vault note,
+`02 Papers/Bateman and Turok 2026 — Escape from Ostrogradsky via Hidden Ghost Parity.md`,
+now records relevance, reading limits, and a staged follow-up; detailed
+derivation checks remain pending.
 
 ## Current conceptual focus
 
-Important issues currently being investigated include:
+For the new focus, distinguish spurious truncation modes, genuine retained
+degrees of freedom, Ostrogradsky energy unboundedness, tachyonic growth, and
+well-posedness. Keep cutoff/gradient control, initial-state preparation, and
+field-redefinition consistency explicit.
+
+The previous potential investigation includes:
 
 - the relationship between scattering amplitudes and effective potentials;
 - the origin of classical contributions from loop diagrams;
@@ -35,7 +96,7 @@ The new VS Code-centered environment is being established so calculations can
 be edited, executed, version controlled, and connected directly to the
 research notes.
 
-## Next physics direction
+## Previous potential thread: next physics direction
 
 After the standard one-loop correction is understood sufficiently well,
 investigate how additional terms allowed in the gravitational EFT Lagrangian
@@ -50,7 +111,7 @@ In particular:
 5. determine whether they modify classical terms, quantum terms, or only
    short-distance/contact contributions.
 
-## Immediate infrastructure task
+## Background infrastructure task
 
 Finish constructing the VS Code research environment.
 

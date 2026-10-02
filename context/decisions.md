@@ -156,3 +156,52 @@ and retain provenance. Inventory, full audits, and acceptance checks are trigger
 by their specific need rather than routine research. Load the registration
 procedure only for discovery/addition tasks. No background synchronization or
 second maintained catalog is introduced.
+
+---
+
+## 2026-09-19 - Perform routine index maintenance without renewed permission
+
+The user explicitly reaffirmed that interaction with the Research Paper Index
+is required research workflow and must not trigger repeated permission requests.
+Standing authorization covers reads/searches, registration, supported record and
+coverage updates, necessary native-table extension, and verification readbacks
+across conversations. Proceed after the existing live-data checks; do not add a
+user approval checkpoint for a Drive spreadsheet write. Preserve human fields
+and the separate source-paper policy. Distinguish any actual enforced tool or
+platform approval from project authorization; this instruction does not bypass
+enforced controls.
+
+The user subsequently authorized Google Drive's app-specific Allow all actions
+setting for the secondary AI-project account, with explicit project boundaries:
+interact only with M.Sc. Research and descendants, and do not add/create, upload,
+copy, or delete Drive files/folders unless specifically asked. Adding/updating
+index rows and extending its native table remain routine workflow. The app-wide
+approval setting does not technically enforce these folder/task boundaries;
+AGENTS.md and the paper workflow carry them as persistent agent instructions.
+
+The user then requested reverting the Drive permission change. Restored the
+app override to inherit (Use my default; Allow low-risk actions). Research-folder
+and file-creation/deletion boundaries remain. Local user-config auto-approval
+overrides for spreadsheet cell reads and batch updates remain: the filesystem
+approval request to remove those two overrides was declined. Do not describe
+this as removal of all local approval exceptions.
+
+---
+
+## 2026-10-02 - Start the oscillator benchmark in a readable Mathematica notebook
+
+Use `calculations/mathematica/oscillator_uv_matching.nb` as the primary working
+artifact for this miniproject, as explicitly requested by the user. Keep short
+input cells, visible intermediate results, descriptive symbols, and explanatory
+text. Add textual `.wl` representations when reusable pieces mature; avoid two
+independently edited implementations during exploration. Built-in Wolfram
+Language functions suffice for the mechanical model.
+
+Keep the conceptual roadmap and learning checkpoints in the vault's
+`03 Calculations/Oscillator Toy Model - UV Matching and Runaway Solutions.md`.
+The researcher leads physical reasoning; AI assistance focuses on Mathematica
+implementation, debugging, and checks. Use the previously proposed healthy
+coordinate-coupled oscillators. Specify the low-energy state separately from the
+UV action, and distinguish finite-order data matching, exact projection for a
+given truncation, and order reduction. Track trajectory growth separately from
+Ostrogradsky energy unboundedness and assess errors over stated time intervals.

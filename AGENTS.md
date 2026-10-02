@@ -90,11 +90,38 @@ Preserve Obsidian links and existing Markdown conventions.
 
 Treat the Google Drive research-paper directory as READ-ONLY by default.
 
-The Research Paper Index is an authorized writable exception. The user approved
-its creation and ongoing maintenance on 2026-09-16; the Drive connection does
-not need to be technically restricted to that one file. Broader paper-library
-operations can be authorized by the research task. Do not treat a preference
-for eventual full access as a request to reorganize or delete existing papers.
+Confine all project Drive interaction to `M.Sc. Research` and its descendants
+(folder ID `1hinWMyTV1ld3FKfvzUeRijC_JUOBp7XU`). Do not read, search, list, edit,
+or otherwise interact with other Drive folders or their contents. Scope searches
+to known research-folder parents; do not run account-wide discovery. Follow
+shortcuts only when their targets are established to be within this boundary.
+
+Do not add/create, upload, copy, trash, or permanently delete Drive files or
+folders unless the user specifically asks for that operation. Registering a
+paper means adding a row to the existing index, not uploading a PDF or creating
+a new spreadsheet. Routine index work must not create backup/copy files on Drive.
+
+The existing Research Paper Index is an authorized writable exception. The user
+approved ongoing maintenance on 2026-09-16. The temporary Google Drive app
+Allow all actions setting was reverted to Use my default on 2026-09-19 at the
+user's request. Respect enforced tool approvals. Standing index authorization
+is not permission to operate outside the research folder or to create/delete
+files. These project boundaries are behavioral instructions,
+not technical restrictions on the connected account. Other source-file changes
+still require explicit instructions.
+
+**Do not ask for permission or confirmation for routine Research Paper Index
+work.** The user reaffirmed standing authorization on 2026-09-19. During research,
+proceed with index reads/searches, new-paper registration, supported record and
+coverage updates, required native-table extension, and readback verification
+through the authenticated connection. This authorization persists across
+conversations; the user need not explicitly request each index update. Perform
+the required live-data checks and then write, without an approval checkpoint
+merely because the index is on Drive or the operation changes a spreadsheet.
+Preserve human-owned fields and follow the catalog procedures below. Ask about
+unresolved factual ambiguity only when needed, not to renew this authorization.
+If an enforced tool/platform approval blocks an operation, identify that actual
+block separately; do not present it as missing project authorization or bypass it.
 
 Use the library URL in `context/local_environment.md` through the Google Drive
 connection for discovery and reading. Do not depend on sandbox access to the

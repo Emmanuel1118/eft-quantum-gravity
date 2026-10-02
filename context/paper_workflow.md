@@ -16,6 +16,33 @@ acceptance prompt are in `context/stage5_acceptance.md`.
 Canonical URLs and the vault location are in `local_environment.md`.
 The two-root workspace and URL-based Drive route remain in use.
 
+## Standing authorization for index work
+
+All Drive interaction is confined to `M.Sc. Research` and its descendants, using
+the folder URL in `local_environment.md`. Scope discovery to those folders; do
+not search/list the whole account or access unrelated folders. Do not create,
+upload, copy, or delete Drive files/folders unless specifically requested. Index
+row insertion and native-table extension edit an existing file and remain
+authorized; registration does not authorize uploading PDFs or creating backups.
+The app setting is Use my default (Allow low-risk actions), restored at the
+user's request on 2026-09-19. Respect any enforced tool approval prompts.
+
+Routine Research Paper Index interaction is a required, pre-authorized part of
+research (approved 2026-09-16, explicitly reaffirmed 2026-09-19). Do not ask the
+user to approve reads, searches, paper registration, supported metadata/coverage
+updates, native-table extension needed for inserts, or verification readbacks.
+Complete these steps directly through the authenticated connection, including
+when the research request does not separately mention index maintenance.
+Read-before-write and verification are data checks, not user approval gates.
+This authorization persists across conversations and applies to the registration
+procedure in `paper_registration.md` as well. Preserve human-owned fields and
+resolve factual conflicts as described below. Source-paper changes remain
+governed by the separate library policy in `AGENTS.md`.
+
+An enforced tool/platform approval is separate from project authorization. If
+one actually blocks a call, explain the specific block without asking the user
+to re-authorize the already approved workflow; do not bypass enforced controls.
+
 ## Decide how much to read
 
 Start with the question, not a fixed retrieval checklist. Search vault filenames
@@ -55,6 +82,17 @@ roadmaps, our calculations, and unresolved questions.
    sources, using e.g. `name contains 'Donoghue 2023'`, an observed parent ID,
    and `trashed = false`. General text search may match citations in other PDFs.
    A search confined to one parent does not cover its descendants.
+   If a known folder unexpectedly returns no search results, call the Drive
+   connector's `fetch` on that folder's canonical URL before concluding that
+   a file is unavailable. Folder fetch lists up to 100 direct children; larger
+   listings may be partial. Navigate only established research descendants,
+   then verify the selected file's parent and fetch by its returned ID.
+   On 2026-09-26, scoped search returned no files in Papers/To Process while
+   folder fetch listed both PDFs and direct fetch successfully retrieved P038's
+   institutional publisher PDF (readable text and original 7,864,831-byte file).
+   The search discrepancy's internal cause is unknown; it did not indicate a
+   PDF permission or institutional-access failure. Prefer the recorded file ID
+   on later reads; no browser, public-paper substitute, or access change is needed.
 4. If no adequate cache exists, read/reuse source metadata to confirm ID, MIME
    type, filename, parent, and available version information. Choose readable
    connector text OR the original PDF according to the need; do not fetch both
