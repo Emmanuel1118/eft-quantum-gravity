@@ -205,3 +205,59 @@ coordinate-coupled oscillators. Specify the low-energy state separately from the
 UV action, and distinguish finite-order data matching, exact projection for a
 given truncation, and order reduction. Track trajectory growth separately from
 Ostrogradsky energy unboundedness and assess errors over stated time intervals.
+
+---
+
+## 2026-10-05 - Generate notebook input using native parsed boxes
+
+For generated notebook cells, parse source under `HoldComplete` and format it
+with `MakeBoxes`; do not construct executable multiline cells from flat regex
+token lists. Keep leading prose explanations in Text cells, preserve top-level
+statement breaks, and let interactive evaluation generate its own cell labels.
+Validate the saved notebook in a fresh kernel and distinguish that check from
+interactive front-end verification. The oscillator repair preserves existing
+outputs and passes 49 inputs and 38 calculation checks; front-end confirmation
+is still pending.
+
+---
+
+## 2026-10-06 - Keep final oscillator figures beside the vault calculation note
+
+Retain the six final Mathematica figure exports in the vault's
+`03 Calculations/figures/oscillator_uv_matching/` and embed them in the
+toy-model note using Obsidian links, with captions stating parameters, time
+intervals, and the quantity plotted. Keep temporary exports and numerical
+tables in ignored repository `output/`; the notebook remains the calculation
+source. Distinguish trajectory approximation errors, isolated growing-mode
+contributions, and numerical integration errors in both captions and analysis.
+
+---
+
+## 2026-10-09 - Report access problems and complete required source reading
+
+The user requires explicit disclosure whenever a needed source is inaccessible.
+Access failure does not justify omitting required reading or presenting an
+abstract, general knowledge, or another source as a reading of that paper.
+State the actual access/read status, work with the user to obtain readable access,
+and complete the required reading once available. Existing note-first rules and
+explicit user instructions still determine reading scope; platform controls and
+the research-folder boundary remain in force.
+
+Stelle (1977), DOI `10.1103/PhysRevD.16.953`, is P040. The user supplied its PDF in
+Papers/Theory; authenticated Drive text retrieval now succeeds through the
+appendix and references. Prose was sampled beyond the abstract; full proof
+analysis and visual checks of exact equations remain for the theoretical
+discussion. The live index records its location and access verification.
+
+---
+
+## 2026-10-09 - Separate the gravity overview from the renormalizability derivation
+
+At the user's request, use the vault's `01 Concepts/Higher-Derivative Gravity.md`
+as the connection point for quadratic gravity and related higher-derivative
+questions. Keep the detailed Feynman-diagram power count in the separate linked
+`01 Concepts/Quadratic Gravity - Renormalizability and Power Counting.md`.
+Extend these notes as the concepts develop; preserve source locators and
+coverage limits, and keep the live index's paper coverage distinct from the
+researcher's familiarity. This creates two concept notes without reorganizing
+existing vault material.

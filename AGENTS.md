@@ -52,6 +52,23 @@ Place Wolfram Language calculations under:
 
 Do not overwrite a working calculation merely to reorganize it.
 
+For human-readable Mathematica calculations:
+
+- Use short, consistent symbols matching the accompanying note's equations.
+  Explain unavoidable notation differences once in a compact notation key.
+- Keep displayed equations compact using named subexpressions and one derivation
+  step per cell; suppress bulky or repeated output.
+- Derive intermediate expressions from earlier definitions with Mathematica
+  functions rather than transcribing results by hand. Reserve explicit formulas
+  for model definitions or clearly labeled independent reference checks.
+
+For generated `.nb` input cells, parse source under `HoldComplete` and format
+with native `MakeBoxes`; never assemble multiline inputs from flat token lists.
+Keep leading explanations in `Text` cells and let Mathematica generate `In`/`Out`
+labels. Re-evaluate the saved notebook in a fresh kernel and verify visible output
+from a representative output-producing cell in the front end. If front-end
+testing is unavailable, explicitly report that verification as pending.
+
 ## Python
 
 Place scientific Python calculations under:
@@ -127,6 +144,14 @@ Use the library URL in `context/local_environment.md` through the Google Drive
 connection for discovery and reading. Do not depend on sandbox access to the
 local `G:` mount. Including that mount as a workspace root caused Windows
 sandbox initialization to fail; URL access has been verified separately.
+
+Always report source-access problems explicitly and distinguish an abstract,
+retrieved full text, and passages actually read. Do not omit required paper
+reading because access failed, silently substitute another source, or imply
+that unread material was checked. Treat failed access as an unresolved obstacle:
+report it promptly and work with the user to obtain a readable copy, then perform
+the required reading. Project reading rules and the user's instructions determine
+whether and how much of a paper to read; access failure does not waive that work.
 
 Agents may:
 

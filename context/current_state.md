@@ -1,6 +1,6 @@
 # Current Research State
 
-_Last updated: 2026-10-02_
+_Last updated: 2026-10-10_
 
 ## Active investigation
 
@@ -12,14 +12,34 @@ Active starting calculation: the healthy coordinate-coupled light/heavy
 oscillator model. The vault's `03 Calculations/Oscillator Toy Model - UV Matching
 and Runaway Solutions.md` now records goals, steps, and learning checkpoints.
 The primary working artifact is `calculations/mathematica/oscillator_uv_matching.nb`,
-following the user's notebook preference. Its UV Lagrangian, coupled equations,
-energy, and potential-positivity checks passed in the local kernel. An independent
-symbolic suitability check confirms stable UV modes and a spurious growing root
-above the heavy scale in the first fourth-order derivative truncation.
-Normal-mode/data matching and the evolution/error benchmark remain pending.
-The researcher leads physical derivations and interpretation; AI assistance
-focuses on readable Mathematica implementation. Next: derive exact normal modes,
-then implement their low-energy initial-data map. Gravity follows this benchmark.
+following the user's notebook preference. Its completed calculation covers UV
+modes/data, heavy response, derivative truncation, matching/order reduction, and
+evolution/error comparisons; fresh-kernel verification is recorded below.
+The vault note records steps 1–7. Step 3 retains heavy initial data in the retarded
+response and records exact local elimination with its UV data map. Step 4 separates
+exponential roots, failure of the derivative hierarchy, and the unbounded canonical
+Hamiltonian. Step 5 records order reduction, the prescription comparison, and the
+fast-amplitude formula: finite-order UV matching differs from exact oscillatory
+projection, while both projected and reduced frequencies agree with UV through
+$M^{-6}$. Step 6 includes six figures and practical implications for each
+prescription. At $\omega=1,M=10,g=3,q_0=1,v_0=0$, projection and reduction have
+maximum sampled amplitude-normalized errors of $3.48\times10^{-6}$ and
+$1.14\times10^{-4}$ over $0\le t\le100$, with phase drift and $O(M^{-8})$
+frequency errors. Generic, finite-order-matched, and exact-UV additional data
+all excite growth under unreduced fourth-order evolution. The acceleration
+mismatch scan demonstrates logarithmic gains in threshold time; the short
+precision/tolerance scan controls solver error but does not establish long-time
+stability. The Ostrogradsky concept note explains why exact UV elimination
+inherits a positive energy and a different Hamiltonian structure. Step 7
+interprets UV state information and consistent data/evolution selection,
+compares the method and conclusions with Burgess–Williams v1 §§1–3, and states
+the interaction, time-dependent, quantum, and gravity limits. This is an explicit
+benchmark of their perturbative argument, not a new general ghost-removal
+theorem. Next: review the interpretation and choose an extension; the proposed
+first test is a weak, slowly switched drive with heavy-state and source matching.
+The researcher leads interpretation; AI assistance focuses on readable Mathematica
+implementation. Record each step only when requested; steps 6–7 were summarized
+directly at the user's request. Gravity follows this benchmark.
 
 The vault note `04 Research Questions/Higher-Derivative Gravity - Literature
 Review and Investigation Plan.md` contains the light review, prioritized
@@ -49,8 +69,9 @@ The healthy light/heavy oscillator benchmark above has now started. Keep UV
 state preparation explicit, and distinguish finite-order UV data matching from
 exact projection onto the truncated equation's no-runaway subspace: omitted-order
 data mismatch can seed its growing mode. Finite-order EFT accuracy is distinct
-from exact all-orders convergence; the full matching/error benchmark and
-gravitational branch classification remain pending.
+from exact all-orders convergence. The matching/error benchmark and its
+interpretation are documented through step 7. Extensions and gravitational
+branch classification remain pending.
 
 The earlier one-loop Newtonian-potential investigation remains a background
 thread, with Donoghue Eq. 20 as its reference point.
@@ -67,6 +88,43 @@ now records relevance, reading limits, and a staged follow-up; detailed
 derivation checks remain pending.
 
 ## Current conceptual focus
+
+P024, Lü/Perkins/Pope/Stelle (2015), arXiv:1502.01028v2, now has a
+substantial paper note in the vault, plus Numerical Shooting and Black Hole
+Solution Branches and Black Hole Thermodynamics in Higher-Derivative Gravity.
+All four original PDF pages, Eqs. (1)-(11), horizon coefficients, entropy
+formula and Figs. 1-3 were read and visually checked on 2026-10-10. Coverage
+includes Ricci-flat Schwarzschild/Kerr persistence, the static R=0 identity,
+the failure of the Ricci-tensor positivity argument, horizon-series shooting,
+the additional/negative-mass branch and Wald thermodynamics. Proposed uses are
+high-precision branch continuation and independent first-law checks between
+horizon and asymptotic data, followed by an EFT curvature/gradient audit.
+Radial boundary-data tuning is distinct from temporal initial-data matching;
+static existence, energy boundedness and dynamical stability remain separate.
+The researcher reported skimming the full paper. No black-hole integration,
+Eq. (4) derivation or thermodynamic fit has been independently reproduced.
+This gravity benchmark does not replace the active oscillator extension.
+Supporting entropy references are registered as P041 (Wald 1993, abstract/
+mention only), P042 (Iyer--Wald 1994, selected HTML equations), and P043
+(Fan--Lü 2015 v3, selected PDF introduction). Their full derivations remain
+unread; the index records these limits separately from P024's coverage.
+
+The vault's `01 Concepts/Quadratic Gravity - Renormalizability and Power
+Counting.md` now records the requested theoretical discussion, centered on the
+Feynman-diagram derivation of the loop-independent four-derivative bound. It
+covers internal ghosts, subdivergences, gauge symmetry, counterterms, the
+Einstein comparison, and exact versus EFT propagators. The separate
+`01 Concepts/Higher-Derivative Gravity.md` is the overview for quadratic gravity,
+extra modes, EFT branches and related research questions. Both link to existing
+notes and distinguish explanatory algebra from source results.
+
+P040, Stelle (1977), is readable from Papers/Theory; its live index now records
+Partial summary coverage in these concept notes. Selected original PDF pages
+2, 4, 7-8, 10-12 and 16 were checked for the action/spectrum, gauge fixing,
+power counting, invariant counterterms and propagator. The full BRST proof,
+explicit divergent loops, beta functions and contour analysis remain open.
+Continue at the researcher's pace. Selected source caches remain under ignored
+`output/paper_cache/stelle-1977*`.
 
 For the new focus, distinguish spurious truncation modes, genuine retained
 degrees of freedom, Ostrogradsky energy unboundedness, tachyonic growth, and
@@ -86,6 +144,16 @@ The previous potential investigation includes:
 ## Computational status
 
 Mathematica is being used for the calculation.
+
+Notebook evaluation repair (2026-10-05): the completed oscillator notebook's
+35 generated input cells were rebuilt using native parsed boxes, with their
+leading explanations retained as Text cells and saved evaluation labels removed.
+All 49 input cells and 38 calculation checks pass in a fresh command-line kernel;
+stored output boxes are unchanged. Interactive front-end evaluation remains to
+be confirmed: the desktop connection was unavailable and an isolated hidden
+front-end test did not complete. The pre-repair notebook and verification
+record are under ignored `output/oscillator_meeting/`. This troubleshooting does
+not update the scientific roadmap or replace the researcher's interpretation.
 
 FeynCalc and FeynGrav are relevant computational tools.
 
